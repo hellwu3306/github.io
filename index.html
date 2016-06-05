@@ -1,1 +1,646 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>导航</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<link rel="stylesheet" href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css">
+<link href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
+   <script src="http://apps.bdimg.com/libs/jquery/2.0.0/jquery.min.js"></script>
+   <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+ <!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+      <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+      <!--[if lt IE 9]>
+         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <![endif]-->
+	  <style>
+		.container{ width:100%;}
+		.container{ max-width:1000px;}
+		*{border-radius:0 !important;}
+		
+		.nav-tabs { border-color:#ddd; }
+		.nav-tabs li{ width:80px; text-align:center;}
+		.tab-content{ border:1px solid #ddd;border-top:0px;}
+		.nav-tabs a{color: #333;}		
+		
+		.top-tab2{ margin:0px auto;padding:0px; float:left;}
+		.top-tab2 li {
+			display: inline-block;
+			float: left;
+			margin:5px 0px;
+		}
+		.tab-pane { padding:5px 10px;}
+		.top-tab2 li a {
+		color: #333;
+		display: block;
+		font-size: 14px;
+		padding: 11px 0px;
+		text-align: center;
+		text-decoration: none;
+		width:100px;
+		}
+.top-tab2 li a:hover, .top-tab2 li.current a {
+    background-color: #0070c9;
+    color: #fff;
+}
+.top-tab3{ margin:0px auto; padding:0px; float:left;}
+.top-tab3 li {
+			display: inline-block;
+			float: left;
+		
+		}
+.top-tab3 li a {
+		color: #333;
+		display: block;
+		font-size: 14px;
+		padding: 11px 0px;
+		text-align: center;
+		text-decoration: none;
+		width:100px;
+		}
+.top-tab3 li a:hover, .top-tab2 li.current a {
+    background-color: #0070c9;
+    color: #fff;
+	
+}
+.menuBG{background-color:#004074; color:#fff;}
+.menuBG2{background-color:#1373C0; color:#fff;}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+	color:#004074;
+	
+	font-weight:bold;
+}
+.btn-blue{
+color:#fff;
+background-color:#357ebd;
+}
+
+.tab-tag {border:1px solid #ddd;margin: 5px 0; }
+.tab-type {float:left;width:32px;height:100%; padding:4px; font-size:12px;margin:10px 10px 0px 10px; background-color:#2980B9;color:#fff;}
+.tab-type2 {float:left;width:46px;height:100%; padding:4px 6px; font-size:12px;color:#fff;text-align:center;}
+.btn-primary {background-color:#1373C0;}
+.nav-tabs .dropdown-menu{ min-width:78px; width:78px;}
+.span12{ margin:10px 0px;}
+.clearfix{margin:0px;}
+.input-group {width:400px; float:right; margin-top:25px;}
+.input-group .dropdown-menu{ min-width:88px; width:88px; text-align:center;}
+.foot{ border-top:2px solid #0070c9; margin-top:20px; }
+.link{ margin-top:0px; }
+.link .btn{font-size: 15px; float:left; margin:0px 0px 0px 10px;}
+.link ul{ padding:0px 10px;}
+.link li {
+			display: inline-block;
+			float: left;
+			font-size:14px;
+			padding:10px 10px;
+			text-align:center;
+		}
+.padding0 {padding:0px;}
+.padding5 {padding:5px;}
+@media (max-width: 1000px)
+{
+	.tab-type2{padding:10px; width:100%;}
+	.top-tab2 li{ margin:0px;}
+	.top-tab3{ padding:10px 0px;}
+	.padding0{padding:10px 0px; margin:0px 0px 10px 0px;}
+}
+@media (max-width: 600px) {
+   .input-group {width:100%; margin:16px 0px 10px 0px;}
+   .margin-g{margin:26px 0px 0px 0px;}
+}
+	  </style>
+	 <script>
+			function search(){
+				var str=$('#search_type').html().trim();
+				if(str=='百度'){
+					$('#form1').attr('action','https://www.baidu.com/baidu');
+					$('#searchTxt').attr('name','wd');
+				}
+				if(str=='谷歌'){
+					$('#form1').attr('action','https://global.gogfw.com/search');
+					$('#searchTxt').attr('name','q');
+				}
+				if(str=='必应'){
+					$('#form1').attr('action','http://cn.bing.com/search');
+					$('#searchTxt').attr('name','q');
+				}
+				if(str=='好搜'){
+					$('#form1').attr('action','https://www.so.com/s');
+					$('#searchTxt').attr('name','q');
+				}
+				if(str=='搜狗'){
+					$('#form1').attr('action','hhttp://www.sogou.com/web');
+					$('#searchTxt').attr('name','query');
+				}
+				
+			}
+	 </script>
+</head>
+<body onresize="w_resize()"> 
+<div style="background-color:#141414;margin:0px; padding:0px;">
+<div class="container" style="height:120px;">
+ <div style="float:left;">
+ <h1 style="color:#fff; float:left;padding:2px 0px;font-size:46px; padding-right:10px;"><span class="fa fa-modx"></span></h1>
+ <h2 style="color:#fff; float:left; padding:16px 0px 0px 0px; font-size: 44px; width:176px;text-align: center;line-height:22px;"> 纯净<span style="color:#1373C0;">导航</span> </h2>
+<div style="color:#fff; clear: both; float: left; margin-top: -10px; text-align: center; width: 232px; font-size: 19px;">www.chunjingdaohang.com</div>
+ </div>
+<form action="" target="_blank" onsubmit="search()" id="form1">
+<div class="input-group margin-g">
+					<button type="button" class="btn btn-blue">搜索引擎</button>
+					<button type="button" class="btn btn-white">常用查询</button>
+</div>
+<div class="input-group" style="margin-top:4px;">
+			 
+				   <div class="input-group-btn">
+					  <span type="button" class="btn btn-default" id="search_type"
+						 tabindex="-1">百度
+					  </span>
+					  <button type="button" class="btn btn-default 
+						 dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+						 <span class="caret"></span>
+						 <span class="sr-only">切换下拉菜单</span>
+					  </button>
+					  <ul class="dropdown-menu" id="drp_search_type">
+						 <li class="active"><a href="#"   title="百度搜索">百度</a></li>                     
+						 <li><a href="#" title="Google（镜像）搜索">谷歌</a></li>
+						 <li><a href="#" title="360搜索">好搜</a></li>
+						 <li><a href="#" title="Bing搜索">必应</a></li>
+						 <li><a href="#" title="搜狗搜索">搜狗</a></li>
+					  </ul>
+				   </div><!-- /btn-group -->
+				   <input type="text" id="searchTxt" class="form-control" name="wd"  placeholder="百度搜索">
+				   <span class="input-group-btn">
+					  <button class="btn btn-default" type="submit">
+						  <span class="glyphicon glyphicon-search"></span>
+					  </button>
+					  
+				   </span>
+				   <script>
+						$('#drp_search_type li').click(function(){
+							$('#search_type').html($(this).find('a').html());
+							$('#drp_search_type li').removeClass('active');
+							$(this).addClass('active');
+							$('#searchTxt').attr('placeholder',$(this).find('a').attr('title'));
+						});
+				   </script>
+</div><!-- /input-group -->
+	</form>
+</div>
+</div>
+
+<div  class="container" id="container">
+ <div style="clear:both;">
+		<div class="span12">
+			<div class="tabbable" id="tabs-189841">
+				<span class="btn btn-lg menuBG" id="navTitle" style="font-size: 15px; float:left;">
+				  <span class="glyphicon glyphicon-user"></span> 常用网站
+				</span>
+				<ul class="nav nav-tabs" style="float:left; ">
+					<li class="active">
+						<a href="#panel1-1" data-toggle="tab">新闻</a>
+					</li>
+					<li>
+						<a href="#panel1-2" data-toggle="tab">IT资讯</a>
+					</li>
+					<li>
+						<a href="#panel1-3" data-toggle="tab">音乐</a>
+					</li>
+					<li>
+						<a href="#panel1-4" data-toggle="tab">电影</a>
+					</li>
+					<li>
+						<a href="#panel1-5" data-toggle="tab">购物</a>
+					</li>
+					<li class="dropdown" style="display:none;">
+						<a href="#"  class="dropdown-toggle" 
+							 data-toggle="dropdown">更多 <b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="更多">							
+						</ul>					 
+					</li>
+				</ul>
+				<div class="tab-content" style="clear:both;">
+					<div class="tab-pane fade in active" id="panel1-1">
+						<div class="clearfix"> </div>
+						<div class="tab-tag">
+							<div class="tab-type2 menuBG2">在线播放</div>
+							<ul class="top-tab3">		        	
+								<li><a href="#">免费资源吧</a></li>
+								<li><a href="#">站长网</a></li>
+								<li><a href="#">京东</a></li>
+								<li><a href="#">天猫</a></li>
+								<li><a href="#">天猫</a></li>
+								<li><a href="#">故事会免费在</a></li>
+								<li><a href="#">天猫</a></li>
+								<li><a href="#">故事会免费在</a></li>
+							</ul>
+							<div class="clearfix"> </div>							
+						</div>
+						<div class="clearfix"> </div>
+						<div class="tab-tag">
+							<div class="tab-type2 menuBG2">在线播放</div>
+							<ul class="top-tab3">
+								<li><a href="#">故事会免费在</a></li>		        	
+								<li><a href="#">免费资源吧</a></li>
+								<li><a href="#">站长网</a></li>
+								<li><a href="#">京东</a></li>
+								<li><a href="#">天猫</a></li>
+								<li><a href="#">天猫</a></li>
+								<li><a href="#">故事会免费在</a></li>
+								<li><a href="#">天猫</a></li>
+								<li><a href="#">故事会免费在</a></li>
+							</ul>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="clearfix"> </div>
+						<div class="tab-tag">
+							<div class="tab-type2 menuBG2">在线播放</div>
+							<ul class="top-tab3">
+								<li><a href="#">故事会免费在</a></li>		        	
+								<li><a href="#">免费资源吧</a></li>
+								<li><a href="#">站长网</a></li>
+								<li><a href="#">京东</a></li>
+								<li><a href="#">天猫</a></li>
+								<li><a href="#">天猫</a></li>
+								<li><a href="#">故事会免费在</a></li>
+								<li><a href="#">天猫</a></li>
+								<li><a href="#">故事会免费在</a></li>
+							</ul>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="tab-pane fade" id="panel1-2">
+						<ul class="top-tab2">
+							<li><a href="#">故事会免费在</a></li>
+						</ul>
+						<div class="clearfix"> </div>	
+					</div>
+					<div class="tab-pane fade" id="panel1-3">
+						<ul class="top-tab2">
+							<li><a href="#">故事会免费在</a></li>		        	
+							<li><a href="#">免费资源吧</a></li>
+							<li><a href="#">站长网</a></li>
+							<li><a href="#">京东</a></li>
+							<li><a href="#">天猫</a></li>		        	
+							<li><a href="#">故事会免费在</a></li>		        	
+							<li><a href="#">免费资源吧</a></li>
+							<li><a href="#">站长网</a></li>
+							<li><a href="#">京东</a></li>
+							<li><a href="#">站长网</a></li>
+							<li><a href="#">京东</a></li>
+							<li><a href="#">天猫</a></li>	
+							<li><a href="#">故事会免费在</a></li>		        	
+							<li><a href="#">免费资源吧</a></li>
+							<li><a href="#">站长网</a></li>
+						</ul>
+							<div class="clearfix"> </div>
+						<div class="tab-tag">
+							<div class="tab-type2 menuBG2">在线播放</div>
+							<ul class="top-tab3">
+								<li><a href="#">故事会免费在</a></li>		        	
+								<li><a href="#">免费资源吧</a></li>
+								<li><a href="#">站长网</a></li>
+								<li><a href="#">京东</a></li>
+								<li><a href="#">天猫</a></li>
+								<li><a href="#">天猫</a></li>
+								<li><a href="#">故事会免费在</a></li>
+								<li><a href="#">天猫</a></li>
+								<li><a href="#">故事会免费在</a></li>
+							</ul>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="tab-pane fade" id="panel1-4">
+						<div class="tab-tag">
+							<div class="tab-type2 menuBG2">在线播放</div>
+							<ul class="top-tab3">
+								<li><a href="#">故事会免费在</a></li>		        	
+								<li><a href="#">免费资源吧</a></li>
+								<li><a href="#">站长网</a></li>
+								<li><a href="#">京东</a></li>
+								<li><a href="#">天猫</a></li>
+								<li><a href="#">天猫</a></li>
+								<li><a href="#">故事会免费在</a></li>
+								<li><a href="#">天猫</a></li>
+								<li><a href="#">故事会免费在</a></li>
+							</ul>
+							<div class="clearfix"> </div>
+						</div>
+						<div class="clearfix"> </div>
+						<ul class="top-tab2">
+							
+							<li><a href="#">京东</a></li>
+							<li><a href="#">天猫</a></li>	
+							<li><a href="#">故事会免费在</a></li>		        	
+							<li><a href="#">免费资源吧</a></li>
+							<li><a href="#">站长网</a></li>
+							<li><a href="#">京东</a></li>
+							<li><a href="#">天猫</a></li>		        	
+							<li><a href="#">故事会免费在</a></li>		        	
+							<li><a href="#">免费资源吧</a></li>
+							<li><a href="#">站长网</a></li>
+							<li><a href="#">京东</a></li>
+							<li><a href="#">天猫</a></li>
+						</ul>
+							<div class="clearfix"> </div>
+					</div>
+					<div class="tab-pane fade" id="panel1-5">
+						<ul class="top-tab2">
+							<li><a href="#">故事会免费在</a></li>		        	
+							<li><a href="#">免费资源吧</a></li>
+							<li><a href="#">站长网</a></li>
+							<li><a href="#">京东</a></li>
+							<li><a href="#">天猫</a></li>		        	
+							<li><a href="#">故事会免费在</a></li>		        	
+							<li><a href="#">免费资源吧</a></li>
+							<li><a href="#">站长网</a></li>
+							<li><a href="#">京东</a></li>
+							<li><a href="#">天猫</a></li>
+						</ul>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		<div class="span12">
+			<div class="tabbable" id="tabs-189841">
+				<span class="btn btn-lg menuBG" id="navTitle" style="font-size: 15px; float:left;">
+				  <span class="glyphicon glyphicon-user"></span> 常用网站
+				</span>
+				<ul class="nav nav-tabs" style="float:left; ">
+					<li class="active">
+						<a href="#panel2-1" data-toggle="tab">新闻</a>
+					</li>
+					<li>
+						<a href="#panel2-2" data-toggle="tab">IT资讯</a>
+					</li>
+					<li>
+						<a href="#panel2-3" data-toggle="tab">音乐</a>
+					</li>
+					<li>
+						<a href="#panel2-4" data-toggle="tab">电影</a>
+					</li>
+					<li>
+						<a href="#panel2-5" data-toggle="tab">购物</a>
+					</li>
+					<li class="dropdown" style="display:none;">
+						<a href="#"  class="dropdown-toggle" 
+							 data-toggle="dropdown">更多 <b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu" role="menu" aria-labelledby="更多">
+						</ul>					 
+					</li>
+				</ul>
+				<div class="clearfix"> </div>	
+				<div class="tab-content">
+					<div class="tab-pane fade in active" id="panel2-1">
+						<ul class="top-tab2">  	
+							<li><a href="#">故事会免费在</a></li>		        	
+							<li><a href="#">免费资源吧</a></li>
+							<li><a href="#">站长网</a></li>
+							<li><a href="#">京东</a></li>
+							<li><a href="#">天猫</a></li>		        	
+							<li><a href="#">故事会免费在</a></li>		        	
+							<li><a href="#">免费资源吧</a></li>
+							<li><a href="#">站长网</a></li>
+							<li><a href="#">京东</a></li>
+							<li><a href="#">天猫</a></li>	
+							<li><a href="#">故事会免费在</a></li>	
+							<li><a href="#">免费资源吧</a></li>
+							<li><a href="#">站长网</a></li>
+							<li><a href="#">京东</a></li>
+							<li><a href="#">天猫</a></li>		        	
+							<li><a href="#">故事会免费在</a></li>		        	
+							<li><a href="#">免费资源吧</a></li>
+							<li><a href="#">站长网</a></li>
+							<li><a href="#">京东</a></li>
+							<li><a href="#">天猫</a></li>
+						</ul>
+						<div class="clearfix"> </div>	
+					</div>
+					<div class="tab-pane fade" id="panel2-2">
+						<ul class="top-tab2">
+							<li><a href="#">故事会免费在</a></li>		        	
+							<li><a href="#">免费资源吧</a></li>
+							<li><a href="#">站长网</a></li>
+							<li><a href="#">京东</a></li>
+							<li><a href="#">天猫</a></li>		        	
+							<li><a href="#">故事会免费在</a></li>		        	
+							<li><a href="#">免费资源吧</a></li>
+							<li><a href="#">站长网</a></li>
+							<li><a href="#">京东</a></li>
+							<li><a href="#">天猫</a></li>	
+							<li><a href="#">故事会免费在</a></li>	
+							<li><a href="#">免费资源吧</a></li>
+							<li><a href="#">站长网</a></li>
+							<li><a href="#">京东</a></li>
+							<li><a href="#">天猫</a></li>		        	
+							<li><a href="#">故事会免费在</a></li>		        	
+							<li><a href="#">免费资源吧</a></li>
+							<li><a href="#">站长网</a></li>
+							<li><a href="#">京东</a></li>
+							<li><a href="#">天猫</a></li>
+							<div class="clearfix"> </div>							
+						</ul>
+					</div>
+					<div class="tab-pane fade" id="panel2-3">
+						<ul class="top-tab2">
+							<li><a href="#">故事会免费在</a></li>		        	
+							<li><a href="#">免费资源吧</a></li>
+							<li><a href="#">站长网</a></li>
+							<li><a href="#">京东</a></li>
+							<li><a href="#">天猫</a></li>		        	
+							<li><a href="#">故事会免费在</a></li>		        	
+							<li><a href="#">免费资源吧</a></li>
+							<li><a href="#">站长网</a></li>
+							<li><a href="#">京东</a></li>
+							<li><a href="#">站长网</a></li>
+							<li><a href="#">京东</a></li>
+							<li><a href="#">天猫</a></li>	
+							<li><a href="#">故事会免费在</a></li>		        	
+							<li><a href="#">免费资源吧</a></li>
+							<li><a href="#">站长网</a></li>
+							<li><a href="#">京东</a></li>
+							<li><a href="#">天猫</a></li>		        	
+							<li><a href="#">故事会免费在</a></li>		        	
+							<li><a href="#">免费资源吧</a></li>
+							<li><a href="#">站长网</a></li>
+							<li><a href="#">京东</a></li>
+							<li><a href="#">天猫</a></li>
+							<div class="clearfix"> </div>
+						</ul>
+					</div>
+					<div class="tab-pane fade" id="panel2-4">
+						<ul class="top-tab2">
+							<li><a href="#">京东</a></li>
+							<li><a href="#">天猫</a></li>	
+							<li><a href="#">故事会免费在</a></li>		        	
+							<li><a href="#">免费资源吧</a></li>
+							<li><a href="#">站长网</a></li>
+							<li><a href="#">京东</a></li>
+							<li><a href="#">天猫</a></li>		        	
+							<li><a href="#">故事会免费在</a></li>		        	
+							<li><a href="#">免费资源吧</a></li>
+							<li><a href="#">站长网</a></li>
+							<li><a href="#">京东</a></li>
+							<li><a href="#">天猫</a></li>	
+							<li><a href="#">故事会免费在</a></li>		        	
+							<li><a href="#">免费资源吧</a></li>
+							<li><a href="#">站长网</a></li>
+							<li><a href="#">京东</a></li>
+							<li><a href="#">天猫</a></li>		        	
+							<li><a href="#">故事会免费在</a></li>		        	
+							<li><a href="#">免费资源吧</a></li>
+							<li><a href="#">站长网</a></li>
+							<li><a href="#">京东</a></li>
+							<li><a href="#">天猫</a></li>
+							<div class="clearfix"> </div>
+						</ul>
+					</div>
+					<div class="tab-pane fade" id="panel2-5">
+						<ul class="top-tab2">
+							<li><a href="#">故事会免费在</a></li>		        	
+							<li><a href="#">免费资源吧</a></li>
+							<li><a href="#">站长网</a></li>
+							<li><a href="#">京东</a></li>
+							<li><a href="#">天猫</a></li>		        	
+							<li><a href="#">故事会免费在</a></li>		        	
+							<li><a href="#">免费资源吧</a></li>
+							<li><a href="#">站长网</a></li>
+							<li><a href="#">京东</a></li>
+							<li><a href="#">天猫</a></li>	
+							<div class="clearfix"> </div>
+						</ul>
+					</div>					
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+	</div>
+<div class="link">
+	<span class="btn btn-lg menuBG" style="margin-left:0px;">
+				  <span class="glyphicon glyphicon-user"></span> 友情链接
+	</span>
+	<span class="btn btn-xs pull-right menuBG" style="margin-top:3px;">
+				  <span class="glyphicon glyphicon-user"></span> 合作留言
+	</span>
+	<span class="btn btn-xs pull-right menuBG" style="margin-top:3px;">
+				  <span class="glyphicon glyphicon-user"></span> 申请友链
+	</span>
+	
+	<div class="tab-content" style="clear:both; border:1px solid #ddd;">
+		<div class="tab-pane fade in active" id="panel2-1">
+			<ul class="link-tab">  	
+				<li><a href="#">故事会免费在</a></li>		        	
+				<li><a href="#">免费资源吧</a></li>
+				<li><a href="#">站长网</a></li>
+				<li><a href="#">京东</a></li>
+				<li><a href="#">天猫</a></li>	
+				<div class="clearfix"> </div>
+			</ul>
+		</div>
+	</div>
+	
+</div>
+</div>
+
+
+<div style="background-color:#141414;margin:10px 0px 0px 0px; padding:0px; height:80px;">
+<div class="container">
+ <div style="float:left;">
+ <h1 style="color: rgb(255, 255, 255); float: left; padding: 2px 10px 2px 0px; font-size: 26px;"><span class="fa fa-modx"></span></h1>
+ <h2 style="color: rgb(255, 255, 255); float: left; text-align: center;  font-size: 24px; width: 96px; margin-top:23px;"> 纯净<span style="color:#1373C0;">导航</span> </h2>
+<div style="color: rgb(255, 255, 255); clear: both; float: left; margin-top: -10px; text-align: center; font-size: 10px; width: 132px;">www.chunjingdaohang.com</div>
+ </div>
+ <div style="float:right;color:#fff; margin-top:22px;">
+    <div style="font-size:17px;">做个合格的网站搬运工</div>
+    <div>EMail：<a href="mailto:hell3306@163.com">hell3306@163.com</a></div>
+ </div>
+</div>
+</div>
+<script>
+function w_resize(){
+		var w=$('#container').width();
+			$('.nav-tabs').each(function(){		
+				var a = w-$('#navTitle').outerWidth();
+				$(this).width(a);
+				var n = $(this).find('li').length-1;
+				var b = parseInt(a/80);
+				if($(this).find('.dropdown-menu li').length>0)
+				{
+					$(this).find('.dropdown').before($(this).find('.dropdown-menu li'));
+					$(this).find('.dropdown').hide();
+					$(this).find('.dropdown').removeClass('active');
+				}
+				if(n>=b){							
+					$(this).find('.dropdown-menu').append($(this).find('li').slice(b-1, n));							
+					//$(this).find('li').slice(b-1, n).remove();
+					$(this).find('.dropdown').show();
+				}
+				
+			});
+	//var margin_a = 0,margin_b = 0;
+	
+	$('.top-tab2').each(function(){
+		
+			//	$('.top-tab2').css('margin-left',parseInt((w-parseInt(w/100)*100)/2)-10);
+				$('.top-tab2').find('a').width((w-22)/parseInt(w/100));
+	});
+	$('.top-tab3').each(function(){
+			if(w<970){
+				$('.top-tab3').css('margin-left',(w-parseInt($('.top-tab3').eq(0).outerWidth()/100)*100-20)/2);
+			}
+			else
+				$('.top-tab3').css('margin-left','0');
+	});
+	/*	$('.top-tab2').each(function(){
+			var max_a=0;
+			$(this).find('li a').each(function(){
+				var a = $(this).outerWidth();
+				if(a>max_a)
+					max_a=a;
+			});
+			
+			var aa = parseInt(w/max_a);
+			$(this).width(max_a*aa);
+			$(this).find('li').width(max_a);
+		});*/
+		
+	/*	var max_a=0,max_b=0;
+		$('.top-tab2 a').each(function(){
+				var a = $(this).outerWidth();
+				if(a>max_a)
+					max_a=a;
+		});
+		
+		var w_a = 100;
+		var aa = parseInt((w-44)/w_a);
+		$('.top-tab2').width(w_a*aa-44);
+	*/	
+		$('.span12 .tab-content').height('auto');
+		if(w>=970)
+		{
+			$('.span12').each(function(){
+				//alert($(this).find('.tab-content').height());
+				$(this).find('.tab-content').height($(this).find('.tab-content').eq(0).outerHeight());
+			});
+		}
+		
+}
+w_resize();
+
+$(document).ready(function(){
+	});
+
+</script>
+</body>
+</html>
